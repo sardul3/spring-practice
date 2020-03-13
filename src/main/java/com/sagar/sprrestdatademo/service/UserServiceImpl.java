@@ -1,6 +1,7 @@
 package com.sagar.sprrestdatademo.service;
 
 import com.sagar.sprrestdatademo.model.User;
+import com.sagar.sprrestdatademo.repository.PostRepository;
 import com.sagar.sprrestdatademo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

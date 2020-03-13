@@ -1,5 +1,7 @@
 package com.sagar.sprrestdatademo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class Ticket {
     private String description;
 
     @Column(name="priority")
+    @JsonIgnore
     private int priority;
 
     public Ticket() {

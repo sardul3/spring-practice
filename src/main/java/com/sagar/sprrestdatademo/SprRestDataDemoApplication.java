@@ -14,7 +14,6 @@ import java.util.Locale;
 
 @SpringBootApplication
 @Slf4j
-@EnableSwagger2
 public class SprRestDataDemoApplication {
 
 	public static void main(String[] args) {

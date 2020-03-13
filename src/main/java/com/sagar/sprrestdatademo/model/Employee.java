@@ -1,9 +1,12 @@
 package com.sagar.sprrestdatademo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employee")
+@JsonIgnoreProperties(value={"last_name"})
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
