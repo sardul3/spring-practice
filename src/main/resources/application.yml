@@ -1,0 +1,6 @@
+spring:
+  data:
+    rest:
+      default-page-size: 10
+      base-path: api
+
