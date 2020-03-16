@@ -1,6 +1,8 @@
 package com.sagar.sprrestdatademo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sagar.sprrestdatademo.model.User;
@@ -10,7 +12,12 @@ public class Post {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
+    @NotNull
     private String title;
+
+    @NotNull
+    @Size(min=4)
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)

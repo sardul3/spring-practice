@@ -64,13 +64,16 @@ public class UserController {
     }
 
     @PostMapping("/users/{userId}/posts")
-    public void addPost(@RequestBody Post post, @PathVariable int userId) {
+    public ResponseEntity<Post> addPost(@Valid @RequestBody Post post, @PathVariable int userId) {
         Optional<User> user = userServiceImpl.findById(userId);
         if(!user.isPresent())
             throw new UserNotFoundException("cannot create a new post (user not found)");
         User foundUser = user.get();
         post.setUser(foundUser);
-        postServiceImpl.save(post);
+        Post savedPost =  postServiceImpl.save(post);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{userId}").buildAndExpand((savedPost.getId())).toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping("/users/{id}")

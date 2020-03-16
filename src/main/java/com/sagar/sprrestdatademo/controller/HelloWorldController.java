@@ -12,7 +12,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import java.util.Locale;
 
 @RestController
-@RequestMapping("/helloworld")
+//@RequestMapping("/helloworld")
 public class HelloWorldController {
 
     private MessageSource messageSource;
@@ -20,6 +20,16 @@ public class HelloWorldController {
     @Autowired
     public HelloWorldController(MessageSource messageSource) {
         this.messageSource = messageSource;
+    }
+
+    @GetMapping("/")
+    public String getHome(){
+        return "Home Page";
+    }
+
+    @GetMapping("/admin")
+    public String getAdminHome() {
+        return "Admin only allowed - dashboard";
     }
 
     @GetMapping("/{id}")
